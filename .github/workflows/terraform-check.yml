@@ -16,20 +16,20 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
-      - name: Terraform Init (day1)
+      - name: Terraform Fmt
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
         run: |
           cd day1
           terraform init
 
-      - name: Terraform Fmt
-        run: terraform fmt -check -recursive
-
-      - name: Terraform Validate (day1)
+      - name: Terraform Validate
         run: |
           cd day1
           terraform validate
 
-      - name: Terraform Plan (day1)
+      - name: Terraform Plan
         run: |
           cd day1
           terraform plan
